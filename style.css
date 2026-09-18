@@ -1,0 +1,454 @@
+/* ==========================================================
+   ESTILOS HISTÓRICOS MEDIEVALES - GIRONA (GERUNDA)
+   ========================================================== */
+
+:root {
+    --parchment: #f4efe6;          /* Papel pergamino antiguo */
+    --parchment-dark: #e8decb;     /* Pergamino envejecido */
+    --stone-dark: #1c1a17;         /* Piedra basáltica y oscura medieval */
+    --stone-mid: #332f2a;          /* Gris piedra desgastada */
+    --iron: #4a453f;               /* Hierro forjado / herrajes */
+    --rust: #8b3a2b;               /* Óxido / Terracota antiguo */
+    --gold: #c59b27;               /* Oro viejo / manuscrito iluminado */
+    --gold-light: #e6c567;
+    --text-antique: #2c2621;       /* Tinta sepia oscura */
+    --transition: all 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--parchment);
+    color: var(--text-antique);
+    font-family: 'IM Fell English', serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    background-image: radial-gradient(circle, rgba(232, 222, 203, 0.4) 0%, rgba(210, 195, 168, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* MARCO SUPERIOR DECORATIVO */
+body::before {
+    content: '';
+    display: block;
+    height: 6px;
+    background: linear-gradient(90deg, var(--stone-dark), var(--gold), var(--rust), var(--gold), var(--stone-dark));
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+/* ==========================================================
+   NAVEGACIÓN Y CABECERA PRINCIPAL
+   ========================================================== */
+
+.header-principal {
+    background: rgba(28, 26, 23, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 6px;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.slogan {
+    display: none; /* Oculto en cabeceras internas para mantener limpieza */
+}
+
+/* Si es el inicio, podemos darle un toque especial a la cabecera si actúa como hero o header */
+header.header-principal .slogan {
+    display: block;
+    width: 100%;
+    font-size: 0.95rem;
+    color: var(--parchment-dark);
+    font-style: italic;
+    margin-top: 0.3rem;
+}
+
+.navegacion-principal .lista-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.enlace-menu {
+    text-decoration: none;
+    color: var(--parchment);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.enlace-menu:hover, 
+.enlace-menu.activo {
+    color: var(--gold);
+    text-shadow: 0 0 8px rgba(197, 155, 39, 0.5);
+    border-bottom: 1px solid var(--gold);
+}
+
+/* ==========================================================
+   CONTENIDO GENERAL Y SECCIONES
+   ========================================================== */
+
+.contenido-principal {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    flex: 1;
+    width: 100%;
+}
+
+.cabecera-seccion, .seccion-hero {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.cabecera-seccion h2, .seccion-hero h2, .contenido-principal h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--stone-dark);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.cabecera-seccion p, .seccion-hero p {
+    font-size: 1.2rem;
+    color: #554e46;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================
+   TARJETAS Y BLOQUES (Qué ver, Actividades, etc.)
+   ========================================================== */
+
+.lista-monumentos, .bloque-actividades, .informacion-transporte, .seccion-resumen-destacados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Ajustes para secciones que deben ir en bloque único o completo */
+.contenido-principal > section.bloque-actividades,
+.contenido-principal > section.informacion-transporte,
+.contenido-principal > section.seccion-formulario-contacto {
+    background: var(--parchment-dark);
+    border: 2px solid var(--gold);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.ficha-monumento, .tarjeta-resumen, .medio-transporte, .sub-actividad {
+    background: var(--parchment-dark);
+    border: 2px solid var(--gold);
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: var(--transition);
+}
+
+.ficha-monumento:hover, .tarjeta-resumen:hover, .medio-transporte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(197, 155, 39, 0.2);
+}
+
+.ficha-monumento h3, .tarjeta-resumen h3, .medio-transporte h3, .bloque-actividades h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--stone-dark);
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.etiqueta-categoria {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--rust);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Imágenes dentro de fichas o destacados */
+.imagen-monumento img, .imagen-destacada img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 2px solid var(--stone-dark);
+    filter: sepia(20%) contrast(105%);
+    margin: 1rem 0;
+}
+
+.imagen-destacada figcaption, .imagen-monumento figcaption {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--iron);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Enlaces internos tipo "leer más" */
+.enlace-leer-mas {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--rust);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.enlace-leer-mas:hover {
+    color: var(--gold);
+    padding-left: 5px;
+}
+
+/* ==========================================================
+   LISTAS, DATOS Y AGENDA (Página de Actividades)
+   ========================================================== */
+
+ul, ol {
+    margin-left: 1.5rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+.agenda-eventos dt {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--stone-dark);
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.agenda-eventos dd {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    color: var(--iron);
+    font-style: italic;
+}
+
+.datos-practicos {
+    margin-top: 1.5rem;
+    border-top: 1px dashed var(--iron);
+    padding-top: 1rem;
+}
+
+.datos-practicos dt {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--rust);
+    font-weight: bold;
+}
+
+.datos-practicos dd {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* ==========================================================
+   BLOQUE CURIOSO / ASIDE
+   ========================================================== */
+
+.bloque-datos-curiosos {
+    background-color: var(--stone-dark);
+    color: var(--parchment);
+    border: 2px solid var(--gold);
+    padding: 2.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.bloque-datos-curiosos h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.bloque-datos-curiosos p {
+    color: var(--parchment-dark);
+    font-style: italic;
+}
+
+/* ==========================================================
+   FORMULARIO DE CONTACTO (Página de Contacto)
+   ========================================================== */
+
+.seccion-formulario-contacto {
+    background: var(--parchment-dark);
+    border: 2px solid var(--gold);
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.grupo-formulario {
+    border: 1px solid var(--iron);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--parchment);
+}
+
+.grupo-formulario legend {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--stone-dark);
+    padding: 0 0.8rem;
+    letter-spacing: 1px;
+}
+
+.campo-form {
+    margin-bottom: 1.2rem;
+}
+
+.campo-form label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--stone-dark);
+}
+
+.campo-form input[type="text"],
+.campo-form input[type="email"],
+.campo-form select,
+.campo-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.4rem;
+    background-color: var(--parchment);
+    border: 1px solid var(--iron);
+    font-family: 'IM Fell English', serif;
+    font-size: 1.05rem;
+    color: var(--text-antique);
+    border-radius: 0;
+}
+
+.campo-form input:focus, .campo-form select:focus, .campo-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 5px rgba(197, 155, 39, 0.4);
+}
+
+.btn-enviar {
+    background: var(--stone-dark);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 0.9rem 2.5rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.btn-enviar:hover {
+    background: var(--gold);
+    color: var(--stone-dark);
+    box-shadow: 0 5px 15px rgba(197, 155, 39, 0.4);
+}
+
+/* ==========================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================== */
+
+.pie-pagina {
+    background-color: var(--stone-dark);
+    color: var(--parchment-dark);
+    text-align: center;
+    padding: 3rem 2rem;
+    font-family: 'Cinzel', serif;
+    border-top: 2px solid var(--gold);
+    margin-top: auto;
+}
+
+.pie-pagina p {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+    color: var(--parchment-dark);
+}
+
+.menu-pie ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.menu-pie a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.85srem;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.menu-pie a:hover {
+    color: var(--parchment);
+    text-shadow: 0 0 5px rgba(197, 155, 39, 0.5);
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVO
+   ========================================================== */
+
+@media(max-width: 768px) {
+    .header-principal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navegacion-principal .lista-menu {
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .contenido-principal h2, .cabecera-seccion h2 {
+        font-size: 2rem;
+    }
+}

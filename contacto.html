@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Práctica y Contacto - Girona</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <h1 class="logo-titulo">Descubre Girona</h1>
+        <nav class="navegacion-principal" aria-label="Menú principal">
+            <ul class="lista-menu">
+                <li><a href="index.html" class="enlace-menu">Inicio</a></li>
+                <li><a href="que-ver.html" class="enlace-menu">Qué Ver</a></li>
+                <li><a href="actividades.html" class="enlace-menu">Qué Hacer</a></li>
+                <li><a href="contacto.html" class="enlace-menu activo">Información y Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        
+        <section class="informacion-transporte">
+            <h2>Cómo llegar a Girona</h2>
+            
+            <article class="medio-transporte">
+                <h3>En Tren (AVE / TGV)</h3>
+                <p>Girona está conectada por alta velocidad a tan solo 38 minutos de Barcelona y a 5:30h de París.</p>
+            </article>
+
+            <article class="medio-transporte">
+                <h3>En Avión</h3>
+                <p>El <strong>Aeropuerto de Girona-Costa Brava (GRO)</strong> se encuentra a solo 12 km del centro urbano y cuenta con conexiones nacionales e internacionales.</p>
+            </article>
+        </section>
+
+        <section class="seccion-formulario-contacto">
+            <h2>Formulario de Contacto / Consultas Turísticas</h2>
+            <p>¿Tienes alguna duda sobre tu viaje a Girona? Escríbenos a través de este formulario:</p>
+
+            <form action="#" method="post" class="formulario-contacto">
+                <fieldset class="grupo-formulario">
+                    <legend>Datos Personales</legend>
+                    
+                    <p class="campo-form">
+                        <label for="nombre">Nombre completo:</label><br>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Ana García">
+                    </p>
+
+                    <p class="campo-form">
+                        <label for="email">Correo electrónico:</label><br>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+                    </p>
+                </fieldset>
+
+                <fieldset class="grupo-formulario">
+                    <legend>Tu Consulta</legend>
+
+                    <p class="campo-form">
+                        <label for="motivo">Motivo de la consulta:</label><br>
+                        <select id="motivo" name="motivo">
+                            <option value="turismo">Información turística general</option>
+                            <option value="ciclismo">Rutas de ciclismo</option>
+                            <option value="eventos">Agenda cultural y eventos</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </p>
+
+                    <p class="campo-form">
+                        <label for="mensaje">Mensaje:</label><br>
+                        <textarea id="mensaje" name="mensaje" rows="6" cols="40" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </p>
+                </fieldset>
+
+                <p class="boton-envio">
+                    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                </p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 Guía Turística de Girona. Sitio web educativo en HTML semántico.</p>
+    </footer>
+
+</body>
+</html>
